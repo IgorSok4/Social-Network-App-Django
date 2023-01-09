@@ -11,6 +11,9 @@ https://docs.djangoproject.com/en/3.0/ref/settings/
 """
 
 import os
+import django
+from django.utils.encoding import force_str
+django.utils.encoding.force_text = force_str
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -25,7 +28,7 @@ SECRET_KEY = 'd3z5o7$4x9t7&y8xx5jstx5g$ur(mcex8j&=7jn7zxagf=pc06'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['mysite.com', 'localhost', '127.0.0.1']
 
 
 # Application definition
@@ -38,6 +41,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'social_django',
+    'django_extensions',
 ]
 
 MIDDLEWARE = [
@@ -125,3 +130,13 @@ LOGIN_URL = 'login'
 LOGOUT_URL = 'logout'
 
 EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+
+MEDIA_URL = '/media/'
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media/')
+
+DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+AUTHENTICATION_BACKENDS = [
+    'django.contrib.auth.backends.ModelBackend',
+    'account.authentication.EmailAuthBackend',
+]

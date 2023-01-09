@@ -1,5 +1,3 @@
-@import url(//fonts.googleapis.com/css?family=Muli);
-
 body {
     margin:0;
     padding:0;
@@ -246,7 +244,7 @@ a.like, a.follow { float:right; margin-top:-8px; }
 }
 #people-list .user {
     width:180px;
-    float:left;
+    float:right;
     overflow:auto;
     padding:10px;
 }
