@@ -3,6 +3,8 @@ from django import forms
 from .models import Image
 from django.utils.text import slugify
 from django.core.files.base import ContentFile
+import certifi
+
 
 class ImageCreateForm(forms.ModelForm):
     class Meta:
@@ -29,7 +31,7 @@ class ImageCreateForm(forms.ModelForm):
                                     image_url.rsplit('.', 1)[1].lower())
         
         #pobranie pliku obrazu z podanego adresu URL
-        response = request.urlopen(image_url)
+        response = request.urlopen(image_url, cafile=certifi.where())
         image.image.save(image_name,
                          ContentFile(response.read()),
                          save=False)
