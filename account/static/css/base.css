@@ -74,7 +74,7 @@ ol {
 }
 
 #header .user {
-    float:right;
+    float:left;
     padding-top:4px;
 }
 
@@ -244,7 +244,7 @@ a.like, a.follow { float:right; margin-top:-8px; }
 }
 #people-list .user {
     width:180px;
-    float:right;
+    float:left;
     overflow:auto;
     padding:10px;
 }
