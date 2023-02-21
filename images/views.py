@@ -54,7 +54,7 @@ def image_like(request):
             return JsonResponse({'status':'ok'})
         except:
             pass
-    return JsonResponse({'status':'chujowo'})
+    return JsonResponse({'status':'ok'})
 
 @login_required
 def image_list(request):
